@@ -1,0 +1,1047 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var reclass_to_flooded = 
+    /* color: #87a8d6 */
+    /* shown: false */
+    ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.57601904542186, 8.676671881319246],
+                  [-76.59799170167186, 8.656307715945644],
+                  [-76.58082556397655, 8.628474908316171],
+                  [-76.55267309815623, 8.662417081377964]]]),
+            {
+              "original": "27,",
+              "new": "6,",
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.71947652832495, 8.386445832756872],
+                  [-76.70986349121557, 8.33889171115033],
+                  [-76.6727846337937, 8.347044258091739],
+                  [-76.68651754394995, 8.39731453053044]]]),
+            {
+              "original": "27,",
+              "new": "6,",
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.61098653809057, 8.38236999270645],
+                  [-76.58901388184057, 8.313074191508065],
+                  [-76.5079897119187, 8.332097792137155],
+                  [-76.52172262207495, 8.381011369861033]]]),
+            {
+              "original": "27,",
+              "new": "6,",
+              "system:index": "2"
+            })]),
+    reclass_to_non_flooded = /* color: #bcbcbc */ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.67077612549998, 8.565334359024078],
+                  [-76.66184973389842, 8.536136793411965],
+                  [-76.60417151124217, 8.544964200293345],
+                  [-76.63644385010936, 8.578234895563364]]]),
+            {
+              "original": "6,",
+              "new": "27,",
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.92283781510935, 8.610305204435797],
+                  [-76.92970427018747, 8.439182300636785],
+                  [-76.75117643815622, 8.61302082128519],
+                  [-76.80748136979685, 8.651037407445262]]]),
+            {
+              "original": "6,",
+              "new": "27,",
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.53694303971872, 8.367179279198535],
+                  [-76.66877897721872, 8.174200222459614],
+                  [-76.6619125221406, 8.021925389870994],
+                  [-76.29112394792185, 7.986567676564093],
+                  [-76.2499252174531, 8.310110821744335],
+                  [-76.34810504949995, 8.398452258262704]]]),
+            {
+              "original": "6,",
+              "new": "27,",
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.56440886003122, 8.770493048206628],
+                  [-76.70448454362497, 8.684977545691423],
+                  [-76.6674056862031, 8.621167554837035],
+                  [-76.51085051042185, 8.725701657070056]]]),
+            {
+              "original": "6,",
+              "new": "27,",
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.7552963112031, 8.493515321845582],
+                  [-76.80748136979685, 8.429673234530657],
+                  [-76.77314909440622, 8.295162946529572],
+                  [-76.7113509987031, 8.333210962728316]]]),
+            {
+              "original": "6,",
+              "new": "27,",
+              "system:index": "4"
+            })]),
+    inclusion_roi = 
+    /* color: #3614d6 */
+    /* shown: false */
+    ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-72.16738394928453, -13.330389227101309],
+                  [-72.16789893341539, -13.340912282207197],
+                  [-72.16755561066148, -13.34625715057548],
+                  [-72.15880088043687, -13.345589048497326],
+                  [-72.15983084869859, -13.333228826783868]]]),
+            {
+              "value": 1,
+              "type": "inclusion",
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-72.16189078522203, -13.277600016134029],
+                  [-72.17390708160875, -13.271585326192126],
+                  [-72.17854193878648, -13.271251172383568],
+                  [-72.17837027740953, -13.27576221001186],
+                  [-72.16618231964586, -13.283948693877877]]]),
+            {
+              "value": 1,
+              "type": "inclusion",
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.3237420310458, -6.473597994969973],
+                  [-76.32460027565135, -6.471721832052054],
+                  [-76.32717516878479, -6.468694227028139],
+                  [-76.32837676102088, -6.469077979381582],
+                  [-76.32631677053199, -6.475303635276085]]]),
+            {
+              "value": 1,
+              "type": "inclusion",
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.63163733155467, 8.604034653574914],
+                  [-76.63438391358592, 8.588419220213638],
+                  [-76.60211157471873, 8.58774027373909],
+                  [-76.60142492921092, 8.616254978408637],
+                  [-76.63232397706248, 8.611502676760267]]]),
+            {
+              "value": 1,
+              "type": "inclusion",
+              "system:index": "3"
+            })]),
+    exclusion_roi = 
+    /* color: #ff0000 */
+    /* shown: false */
+    ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-72.13648490143296, -13.325545127154076],
+                  [-72.13682822418687, -13.316357774620604],
+                  [-72.13837317657945, -13.309174692473293],
+                  [-72.14575461578843, -13.3075041777167],
+                  [-72.15021781158921, -13.308172385001853],
+                  [-72.14815787506578, -13.323206561423362],
+                  [-72.14678458405015, -13.329387007486623],
+                  [-72.14060477447984, -13.336068393113083]]]),
+            {
+              "value": 1,
+              "type": "exclusion",
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-72.10369757843492, -13.281943866213252],
+                  [-72.11056403351304, -13.282445074681968],
+                  [-72.13356665802476, -13.291466650095856],
+                  [-72.1078174514818, -13.294139645045616]]]),
+            {
+              "value": 1,
+              "type": "exclusion",
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.3634815709856, -6.488607687549568],
+                  [-76.36124997308521, -6.485196440535515],
+                  [-76.36794476678638, -6.487243191515146]]]),
+            {
+              "value": 1,
+              "type": "exclusion",
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-75.28320376684097, -12.04598510171554],
+                  [-75.2713591318312, -12.049510589334758],
+                  [-75.26432101537613, -12.048503311882264],
+                  [-75.26054446508316, -12.043131101641473],
+                  [-75.26380603124527, -12.039101873433797],
+                  [-75.27376239110855, -12.03708723666726]]]),
+            {
+              "value": 1,
+              "type": "exclusion",
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.49636816651561, 8.571445194065642],
+                  [-76.51902746827342, 8.543606150991451],
+                  [-76.50048803956248, 8.5171232239775],
+                  [-76.48057531983592, 8.530025392129136]]]),
+            {
+              "value": 1,
+              "type": "exclusion",
+              "system:index": "4"
+            })]),
+    eliminate_samples = 
+    /* color: #d63000 */
+    /* shown: false */
+    ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-76.75045374435713, 8.594283055144942],
+                  [-76.77311304611494, 8.556939773387262],
+                  [-76.7483938078337, 8.536569165889931],
+                  [-76.71818140548994, 8.565766698373833]]]),
+            {
+              "original": "27,6",
+              "new": "0,0",
+              "system:index": "0"
+            })]);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+// training for classification
+// date: 07/08/2022 
+
+var param = { 
+  regionId: 30453, // region de clasificacion
+  country: "COLOMBIA",
+  yearsPreview: [2022],
+  samples: [
+    100,              // Flooded 
+    100               // non-Flooded 
+  ],
+  version_out: '1',  // Version de samples a exportar
+  remapStablePixel : {
+    polygons: [
+      reclass_to_flooded, 
+      reclass_to_non_flooded,
+      eliminate_samples],  // para REMAP pixeles estables OJO; Flooded:6, No flooded:27, No Observado:0 
+  },
+  classificationArea : {   // Para Incluir o exluir el Area de clasificacion con el Buffer 
+        versionClassArea: '1',   // Version del ROI (máscara) generado en paso 1
+        inclusion: inclusion_roi,
+        exclusion: exclusion_roi,
+     // Para importar shp o geometria guardada de ciclos anteriores
+     //   useshp: false,   // Usar geometrias ya creadas en pasos posteriores usado para ciclo2
+     //   shpVersion: '1',
+        step: 'step2',  // 'step2', 'step3'
+  },
+  // exportassets: {
+  //   geometries : false   // Para exportar inclusion y exclusion de classificationArea
+  // }
+};
+
+/**
+ * Años a procesar
+ */
+var years = [
+    1985, 1986, 1987, 1988, 1989, 
+    1990, 1991, 1992, 1993, 1994, 
+    1995, 1996, 1997, 1998, 1999, 
+    2000, 2001, 2002, 2003, 2004, 
+    2005, 2006, 2007, 2008, 2009, 
+    2010, 2011, 2012, 2013, 2014, 
+    2015, 2016, 2017, 2018, 2019, 
+    2020, 2021, 2022
+  ]
+  
+  
+// featureSpace
+var featureSpace = [
+"altitude",
+"slope",
+"mndwi_median",
+"ndsi_median",
+"gcvi_median",
+"ndwi_mcfeeters_median",
+"gcvi_wet",
+"mndwi_wet",
+"mndwi_max",
+"ndsi_min",
+"ndvi_median",
+"ndvi_wet",
+"ndbi_median",
+"ndsi2_median",
+"ndwi_gao_median",
+"ndmi_median",
+"mndwi_dry",
+"wetness",
+"ndmir_median",
+"mmri_median",
+"cai_median",
+"red_wet_max",
+"savi_median",
+"red_wet",
+"evi2_median",
+"greeness",
+"clay_median",
+"gcvi_dry",
+"ndmir_wet",
+"ndfib_median",
+"ndbi_max",
+"ndsi2_max",
+"green_wet_qmo",
+"green_median",
+"red_median",
+"ndwi_gao_dry",
+"ndmir_max",
+"ndmi_dry",
+"ndsi2_dry",
+"cai_wet_min",
+"ndrb_wet",
+"ndbi_dry",
+"red_min",
+"ndwi_gao_wet_min",
+"gvs_median",
+"cai_min",
+"gv_median",
+"ndwi_gao_dry_min",
+"ndvi_dry",
+"savi_dry",
+
+];
+
+var SampleFlooded = function(param) {
+
+/**
+ * Input data
+ * Assets paths, years and another necessary input data
+ */
+this.inputs = {
+  mosaics: [
+            'projects/mapbiomas-raisg/MOSAICOS/mosaics-pathrow-2' //Actualizacion ruta de mosaicos
+          ],
+  _regions: 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/COLOMBIA/ClasificacionRegionesInundables',
+  _samples: 'projects/mapbiomas-raisg/MUESTRAS/'+param.country+'/COLECCION5/TRANSVERSALES/INUNDABLE/STEP2_PUNTOS', // Actualizado a colección5
+  _clasificacionArea: 'projects/mapbiomas-raisg/MUESTRAS/'+param.country+'/COLECCION5/TRANSVERSALES/INUNDABLE/STEP1_ROI/FLOODED-ROI-'+param.country+ '-'+ param.regionId + '-' + param.classificationArea.versionClassArea, // Actualizado a colección5
+  // shpIncluExclu: 'projects/mapbiomas-raisg/MUESTRAS/'+param.country+'/COLECCION4/TRANSVERSALES/INUNDABLE/STEP3_GEOMETRY/flooded-'+ param.regionId + '-' + param.country + '-' + param.classificationArea.shpVersion,
+  // STEP3_GEOMETRY: 'projects/mapbiomas-raisg/MUESTRAS/'+param.country+'/COLECCION4/TRANSVERSALES/INUNDABLE/STEP3_GEOMETRY/flooded-'+ param.regionId + '-' + param.country + '-' + param.classificationArea.shpVersion,
+  // STEP2_GEOMETRY: 'projects/mapbiomas-raisg/MUESTRAS/'+param.country+'/COLECCION4/TRANSVERSALES/INUNDABLE/STEP2_GEOMETRY/flooded-'+ param.regionId + '-' + param.country + '-' + param.classificationArea.shpVersion,
+  references: {
+      //coleccion3: 'projects/mapbiomas-raisg/public/collection3/mapbiomas_raisg_panamazonia_collection3_integration_v2',
+      coleccion3: 'projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/COLOMBIA/col_ref_inundable06_noraisg',
+      peru: '',
+      colombia: 'projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/COLOMBIA/col_ref_inundable06_noraisg',
+      ecuador: '',
+      bolivia: '',
+      guyanas: '',
+      venezuela: '',
+  },
+  palette: require('users/mapbiomas/modules:Palettes.js').get('classification2')
+};
+
+
+/**
+ * Initialize the app
+ */
+this.init = function(param) {
+  var _this = this;
+  var assetMosaics = _this.inputs.mosaics;
+  var assetclassArea = _this.inputs._clasificacionArea;
+  var assetcoleccion3 = _this.inputs.references.coleccion3;
+print(assetclassArea)
+  var regionAsset = _this.inputs._regions;
+  var samplesAsset = _this.inputs._samples;
+  var palette = _this.inputs.palette;
+
+    // Create mask based on region vector
+  var regionId = param.regionId;
+  var yearsPreview = param.yearsPreview;
+  var nSamples = param.samples;
+  
+  // GEOMETRIAS de Inclusion y exclusion
+    var AssetSHPIncluExclu;
+    if(param.classificationArea.step == 'step2')
+
+  
+  
+  var region = _this._getRegion(regionAsset, regionId);
+  var regionMask = region.rasterMask;
+  var regionLayer = region.vector;
+  Map.addLayer(regionLayer,{},'regionLayer')
+  
+  var country = param.country.split(' ').join('-').toUpperCase();
+  var version_out = param.version_out
+  
+  // Get mosaics
+  var mosaics = _this.getMosaic(assetMosaics, regionId);
+  // print('mosaics',mosaics);
+  mosaics = _this.newIndex(mosaics)
+  
+  // Get stable pixels from collection 3
+  var collection3 = ee.Image(assetcoleccion3)
+                      .updateMask(regionMask);
+                      
+  var classes = ee.List.sequence(1, 34).getInfo();
+  var stablePixels = _this.getStablePixels(collection3, classes);
+  
+  print(stablePixels);
+
+  // Flooded sampling points
+  var colorId, stableReference;    
+  var nodata = stablePixels.selfMask().neq(6);  // revisar
+  var flooded  = stablePixels.selfMask().eq(6);  // revisar
+  stableReference = ee.Image(0).updateMask(regionMask);
+
+  
+  stableReference = stableReference
+      .where(flooded.eq(1), 6)
+      .where(nodata.eq(1), 27)
+      .updateMask(regionMask)
+      .rename("reference");
+  
+  
+ // Exclusión de clases con areas delimitadas con geometrías
+  var polygons = param.remapStablePixel.polygons;
+  stableReference = _this.remapWithPolygons(stableReference, polygons);
+  
+  
+
+  var classArea = ee.Image(assetclassArea).updateMask(regionMask)
+  classArea = _this.inclus_exclu(classArea, param.classificationArea.inclusion, param.classificationArea.exclusion);
+  
+  if(param.classificationArea.useshp){
+  var inclusionSHP = ee.FeatureCollection(AssetSHPIncluExclu).filter(ee.Filter.eq('type', 'inclusion'));
+  var exclusionSHP = ee.FeatureCollection(AssetSHPIncluExclu).filter(ee.Filter.eq('type', 'exclusion'));
+  classArea = _this.inclus_exclu(classArea, inclusionSHP, exclusionSHP);
+  Map.addLayer(inclusionSHP,{},'inclusionSHP',false)
+  Map.addLayer(exclusionSHP,{},'exclusionSHP',false)
+ }
+  var GeometriesIE = ee.FeatureCollection([param.classificationArea.inclusion, param.classificationArea.exclusion]).flatten()
+ 
+    // print('GeometriesIE',GeometriesIE)
+    
+  stableReference = stableReference.updateMask(classArea);
+  
+  var points = stableReference
+    .addBands(ee.Image.pixelLonLat())
+    .stratifiedSample({
+        numPoints: 0,
+        classBand: 'reference',
+        region: regionLayer.geometry().bounds(),
+        scale: 30,
+        seed: 1,
+        geometries: true,
+        dropNulls: true,
+        classValues: [6, 27], 
+        classPoints: [ nSamples[1], nSamples[0] ]
+  });
+  
+// print('Points class 6:',points.filter(ee.Filter.eq('reference', 6)).size());
+// print('Points class 27:',points.filter(ee.Filter.eq('reference', 27)).size());
+// Map.addLayer(points)
+ 
+  //iterate by years
+  Map.setOptions('SATELLITE');
+  
+  var SamplesList = ee.List([]);
+  years.forEach(function(year){
+        
+      var mosaic = mosaics
+          .filter(ee.Filter.eq('year', Number(year)))
+          // .filterBounds(regionLayer)
+          .median()
+          .updateMask(regionMask);
+          
+      // print(mosaic)
+
+      var mosaicSel = mosaic.updateMask(mosaic.select('blue_median').gte(0)).select(featureSpace).updateMask(classArea);
+      print('MOSAICO'+year,mosaicSel.bandNames())
+      var trainingSamples = _this.getSamples(stableReference, mosaicSel, points);
+      var training = trainingSamples.training;
+      
+      SamplesList = SamplesList.add(training.map(function(feature){
+                  return feature.set('year', year);
+                }));
+                                  
+      // Export samples to asset
+       var fileName = 'samples-FLOODED-' + country + '-' + regionId + '-' + year + '-' + version_out;
+       var assetId = samplesAsset + '/' + fileName;
+      Export.table.toAsset(training, fileName, assetId);
+
+      if(yearsPreview.indexOf(year) > -1) {
+        
+          Map.addLayer(
+            mosaic, 
+            {
+              bands: ['swir1_median', 'nir_median', 'red_median'],
+              min: 200,
+              max: 5000
+              // gain: [0.08, 0.06, 0.2]
+            }, 
+            'MOSAICO ' + year,
+            false
+          );
+          Map.addLayer(
+            mosaic.select('greeness').updateMask(regionMask), 
+            {
+              bands: ['greeness'],
+              min:-500,"max":2000,
+              palette:["504eff","1ffff4","32ff23","fff71d","ffc31d","ff0000"]
+            }, 
+            'greeness ' + year,
+            false
+          );
+          Map.addLayer(
+            mosaic.select('brightness').updateMask(regionMask), 
+            {
+              bands: ['brightness'],
+              min:-500,"max":2000,
+              palette:["504eff","1ffff4","32ff23","fff71d","ffc31d","ff0000"]
+            }, 
+            'brightness ' + year,
+            false
+          );
+          Map.addLayer(
+            mosaic.select('wetness').updateMask(regionMask), 
+            {
+              bands: ['wetness'],
+              min:-500,"max":2000,
+              palette:["504eff","1ffff4","32ff23","fff71d","ffc31d","ff0000"]
+            }, 
+            'wetness ' + year,
+            false
+          );
+        
+      }  
+
+  });
+  
+  SamplesList = ee.FeatureCollection(SamplesList).flatten()
+
+  
+  Map.addLayer(classArea,
+       {
+        palette: 'fcff00'
+       },'Máscara (ROI)',false
+      );
+  Map.addLayer(stableReference,
+       {
+        min: 0,
+        max: 34,
+        palette: _this.inputs.palette
+       },'Estables dentro de máscara',false
+      );
+
+  var pts = ee.FeatureCollection(points);
+
+  // Layers
+    var eeColors = ee.List(_this.inputs.palette);
+    
+    var trainingPointsColor = pts.map(
+        function (feature) {
+    
+            var c = feature.get("reference");
+    
+            return feature.set({
+                "style": {
+                    "color": eeColors.get(c),
+                    "pointSize": 4
+                }
+            });
+        }
+    );
+    
+    Map.addLayer(trainingPointsColor.style({
+        "styleProperty": "style"
+    }), {}, 'Muestras de entrenamiento',false);
+};
+
+
+
+/**
+ * Get mosaics
+ * Get mosaics from collection2 asset. Then compute
+ * Flooded indexes remaining.
+ */
+this.getMosaic = function(paths, regionId) {
+
+    // Additional variables
+   // var shademask2_v1 = shademask2_v1.rename('shade_mask2')
+    
+    var mosaicRegion = regionId.toString().slice(0, 3);
+    // añadimos una excepcion para Bolivia
+    if (regionId===21101 || regionId===21102){mosaicRegion='210'}
+    
+    var mosaics = paths.map( function(path) {
+            
+            var mosaic = ee.ImageCollection(path)
+              .filter(ee.Filter.eq('region_code', Number(mosaicRegion)))
+              .map(function(image) {
+                var index = ee.String(image.get('system:index')).slice(0, -3);
+                return image
+                  .set('index', index);
+              });
+            
+            if(mosaic.size().getInfo() !== 0) return mosaic;
+            
+          });
+          
+    mosaics = mosaics.filter( 
+            function(m) { return m !== undefined }
+          );
+    
+    var joinedMosaics = mosaics[0];
+    
+    if(mosaics.length === 2) {
+        
+            var join = ee.Join.inner(),
+                joiner = ee.Filter.equals({
+                  leftField: 'index',
+                  rightField: 'index'
+                });
+                
+            var joinedCollection = join.apply(mosaics[0], mosaics[1], joiner);
+            
+            joinedMosaics = ee.ImageCollection(
+              joinedCollection.map( function(feature) {
+                var primary = feature.get('primary'),
+                    secondary = feature.get('secondary');
+                    
+                return ee.Image.cat(primary, secondary);
+              })
+            );
+          }
+          
+    return joinedMosaics;
+    
+};
+
+
+/**
+ * Get new indexes
+ * Get new index from images. Then compute
+ * Flooded indexes .
+ */
+this.newIndex = function(colleccion) {
+
+      // Additional variables
+      var slppost = ee.Image('projects/mapbiomas-raisg/MOSAICOS/slppost2_30_v1');
+      var altitude = ee.Image("JAXA/ALOS/AW3D30_V1_1")
+        .select('AVE')
+        .rename('altitude');
+      var slope = ee.Terrain.slope(altitude).int8().rename('slope');
+      
+
+      var getMndwi = function(image) {
+        var mndwi = image.expression(
+          '(GREEN - SWIR1) / (GREEN + SWIR1)',  
+          {
+            GREEN: image.select('green_median'),
+            SWIR1: image.select('swir1_median')
+          }
+        )
+        .multiply(100).add(100).byte()
+        .rename('mndwi_median');
+      
+        return image.addBands(mndwi);
+      };
+    
+      var getMmri = function(image) { 
+        var mmri = image.expression(
+          '(MNDWI - NDVI) / (MNDWI + NDVI)',  
+          {
+            MNDWI: image.select('mndwi_median'),
+            NDVI: image.select('ndvi_median')
+          }
+        )
+        .multiply(100).add(100).byte()
+        .rename('mmri_median');
+        
+        return image.addBands(mmri);
+      };
+      
+      var getClay = function(image) {
+        var clay = image.expression(
+          '(SWIR1 / SWIR2)',  
+          {
+            SWIR1: image.select('swir1_median'),
+            SWIR2: image.select('swir2_median') 
+          }
+        )
+        .multiply(100).add(100).int16()
+        .rename('clay_median');
+        
+        return image.addBands(clay);    
+      };
+      
+      var getBai = function(image) {
+        var bai = image.expression(
+          '1 / ( ((0.1 - RED) ** 2) + ((0.06 - NIR) ** 2) )',  
+          {
+            NIR: image.select('nir_median'),
+            RED: image.select('red_median') 
+          }
+        )
+        .multiply(100).add(100).int16()
+        .rename('bai_median');
+        
+        return image.addBands(bai);    
+      };
+      
+      var tasseledCap = function(image){
+        var sensor = ee.String(image.get('satellite')).slice(1);
+        
+        var landsatBands = {
+          BLUE: image.select('blue_median'),
+          GREEN: image.select('green_median'),
+          RED: image.select('red_median'),
+          NIR: image.select('nir_median'),
+          SWIR1: image.select('swir1_median'),
+          SWIR2: image.select('swir2_median'),
+        };
+
+        
+        var brightness = ee.Image(
+          ee.Algorithms.If(
+            ee.Algorithms.IsEqual(sensor, '8'),
+            // Landsat 8
+            image.expression(
+              '(BLUE * 0.3029) + (GREEN * 0.2786) + (RED * 0.4733) +\
+              (NIR * 0.5599) + (SWIR1 * 0.508) + (SWIR2 * 0.1872)',
+              landsatBands
+            ),
+            // Landsat 5, 7, X
+            image.expression(
+              '(BLUE * 0.3037) + (GREEN * 0.2793) + (RED * 0.4743) +\
+              (NIR * 0.5585) + (SWIR1 * 0.5082) + (SWIR2 * 0.1863)',
+              landsatBands
+            )
+          )
+        ).rename('brightness').toInt16();
+        
+        var greeness = ee.Image(
+          ee.Algorithms.If(
+            ee.Algorithms.IsEqual(sensor, '8'),
+            // Landsat 8
+            image.expression(
+              '-(BLUE * 0.2941) - (GREEN * 0.243) - (RED * 0.5424) +\
+              (NIR * 0.7276) + (SWIR1 * 0.0713) - (SWIR2 * 0.1608)',
+              landsatBands
+            ),
+            // Landsat 5, 7, X
+            image.expression(
+              '-(BLUE * 0.2848) - (GREEN * 0.2435) - (RED * 0.5436) +\
+              (NIR * 0.7243) + (SWIR1 * 0.0840) - (SWIR2 * 0.1800)',
+              landsatBands
+            )
+          )
+        ).rename('greeness').toInt16();
+        
+        var wetness = ee.Image(
+          ee.Algorithms.If(
+            ee.Algorithms.IsEqual(sensor, '8'),
+            // Landsat 8
+            image.expression(
+              '(BLUE * 0.1511) + (GREEN * 0.1973) + (RED * 0.3283) +\
+              (NIR * 0.3407) - (SWIR1 * 0.7117) - (SWIR2 * 0.4559)',
+              landsatBands
+            ),
+            // Landsat 5, 7, X
+            image.expression(
+              '-(BLUE * 0.1509) + (GREEN * 0.1973) + (RED * 0.3279) +\
+              (NIR * 0.3406) - (SWIR1 * 0.7112) - (SWIR2 * 0.4572)',
+              landsatBands
+            )
+          )
+        ).rename('wetness').toInt16();
+        
+        
+        return image
+          .addBands(brightness)
+          .addBands(greeness)
+          .addBands(wetness);
+
+      };
+
+      // Aditional Bands
+      colleccion = colleccion
+                          .map(function(item) {
+                            return item.addBands([slppost, altitude, slope]);
+                          })
+                          .map(getMndwi)
+                          .map(getMmri)
+                          .map(getClay)
+                          .map(tasseledCap);
+      
+  return colleccion;
+    
+};
+
+
+
+/**
+ * Get stable pixels
+ * Get stable pixels from mapbiomas collection 2
+ * Then cross over reference datasets 
+ */
+this.getStablePixels = function (image, classes) {
+  
+  var bandNames = image.bandNames(),
+      images = [];
+
+  classes.forEach(function(classId){
+      var previousBand = image
+        .select([bandNames.get(0)]).eq(classId);
+          
+      var singleClass = ee.Image(
+        bandNames.slice(1)
+          .iterate(
+            function( bandName, previousBand ) {
+              bandName = ee.String( bandName );
+              return image
+                .select(bandName).eq(classId)
+                .multiply(previousBand);
+            },
+            previousBand
+          )
+      );
+      
+      singleClass = singleClass
+        .updateMask(singleClass.eq(1))
+        .multiply(classId);
+      
+      images.push(singleClass);
+  });
+  
+  
+  // blend all images
+  var allStable = ee.Image();
+  
+  for(var i = 0; i < classes.length; i++) 
+    allStable = allStable.blend(images[i]);
+
+  return allStable;
+};
+
+
+/**
+ * Get reference raster data
+ */
+this.getRasterReference = function(inputs) {
+  
+  var setVersion = function(item) { return item.set('version', 1) };
+  
+  // Colombia
+  var colombia = ee.FeatureCollection(inputs.colombia)
+    .reduceToImage(['ID'], ee.Reducer.first());
+  
+  var colombiaMask = colombia
+    .where(colombia.eq(0), 6).where(colombia.eq(1), 27)
+    .rename('reference')
+    .uint8();
+  
+  
+  // Ecuador
+  var ecuador = ee.FeatureCollection(inputs.ecuador)
+    .reduceToImage(['CODIGO'], ee.Reducer.first());
+  
+  var ecuadorMask = ecuador
+    .where(ecuador.eq(1), 6).where(ecuador.eq(2), 27)
+    .rename('reference')
+    .uint8();
+  
+  
+  // Peru
+  var peru =  ee.FeatureCollection(inputs.peru)
+    .reduceToImage(['CODIGO'], ee.Reducer.first());
+    
+  var peruMask = peru
+    .where(peru.eq(1), 6).where(peru.eq(2), 27)
+    .rename('reference')
+    .uint8();
+
+  
+  // Bolivia
+  var bolivia = ee.FeatureCollection(inputs.bolivia)
+    .reduceToImage(['CODIGO'], ee.Reducer.first());
+  
+  var boliviaMask = bolivia
+    .where(bolivia.eq(1), 6).where(bolivia.eq(2), 27)
+    .rename('reference')
+    .uint8();
+
+  // guyanas
+  var guyanas = ee.Image(inputs.guyanas);
+  
+  var guyanasMask = guyanas.where(guyanas.gt(20), 6)
+    .rename('reference')
+    .uint8();
+    
+
+  // Join all
+  var flooded = ee.ImageCollection([
+    colombiaMask, boliviaMask, ecuadorMask, peruMask, guyanasMask
+  ]);
+  
+  return flooded.mosaic();
+  
+};
+
+
+/**
+ * Función para generar region de interés (ROI) con base en
+ * las región de clasificación o una grilla millonésima contenida en ella
+ */
+this._getRegion = function(regionPath, regionIds){
+  
+    var setVersion = function(item) { return item.set('version', 1) };
+    
+    var region = ee.FeatureCollection(regionPath)
+      .filter(ee.Filter.eq('id_regionC', regionIds));
+    
+    var regionMask = region
+      .map(setVersion)
+      .reduceToImage(['version'], ee.Reducer.first());
+      
+    return {
+      vector: region,
+      rasterMask: regionMask
+    };
+  
+};
+
+/**
+ * Inclu exclu
+ */
+this.inclus_exclu = function(capa, inclu, exclu){
+         var inclusionRegions=  ee.FeatureCollection(inclu).reduceToImage(['value'], ee.Reducer.first())
+                       .eq(1)
+         var exclusionRegions=  ee.FeatureCollection(exclu).reduceToImage(['value'], ee.Reducer.first())
+                       .eq(1)
+         capa = capa.where(exclusionRegions.eq(1), 0).selfMask()        
+         capa = ee.Image(0).where(capa.eq(1), 1)
+                           .where(inclusionRegions.eq(1), 1).selfMask()
+                           
+  return capa
+};
+
+/**
+ * Función para delimitar áreas de excusión en las que no se tomarán 
+ * muestra de entrenamiento. 
+ * Estas áreas pueden incluirse como polígonos desde las herramientas de 
+ * dibujo o como una colección de tipo ee.FeatureCollection() ubicada en la ruta
+ * establecida en el parámetro exclusion.shape.
+ */
+this.excludeAreas = function(image, shapePath, shapeName) {
+  var exclusionRegions;
+  
+  var shapes = shapePath !== '' && shapeName !== '';
+    
+  if(shapes)
+    exclusionRegions = ee.FeatureCollection(shapePath + shapeName);
+  
+  else exclusionRegions = null;
+
+  
+  // Excluir todas las areas definidas
+  if(exclusionRegions !== null) {
+    var setVersion = function(item) { return item.set('version', 1) };
+  
+    exclusionRegions = exclusionRegions
+      .map(setVersion)
+      .reduceToImage(['version'], ee.Reducer.first())
+      .eq(1);
+    
+    return image.where(exclusionRegions.eq(1), 0)
+      .selfMask();
+  } 
+  else return image;
+}
+    
+/**
+ * Función para remapear, de manera interactiva, zonas delimitadas por polígonos
+ * Estos polígonos se dibujan con las herramientas de dibujo de GEE
+ * y se definen como ee.FeatureCollection()
+ */
+this.remapWithPolygons = function(stablePixels, polygons) {
+  
+  if(polygons.length > 0) {
+    polygons.forEach(function( polygon ) {
+      
+      var excluded = polygon.map(function( layer ){
+        
+        var area = stablePixels.clip( layer );
+        var from = ee.String(layer.get('original')).split(',');
+        var to = ee.String(layer.get('new')).split(',');
+        
+        from = from.map( function( item ){
+          return ee.Number.parse( item );
+        });
+        to = to.map(function(item){
+          return ee.Number.parse( item );
+        });
+        
+        return area.remap(from, to);
+      });
+        
+      excluded = ee.ImageCollection( excluded ).mosaic();
+      stablePixels = excluded.unmask( stablePixels ).rename('reference');
+      stablePixels = stablePixels.mask( stablePixels.neq(0) );
+    });
+  } else stablePixels = stablePixels;
+  
+  return stablePixels;
+  
+}
+
+
+
+/**
+ * Get sample points
+ */
+this.getSamples = function(reference, mosaic, points) {
+  
+    var training = reference
+      .addBands(mosaic)
+      .sampleRegions({
+          collection: points,
+          properties: ['reference'],
+          scale: 30,
+          geometries: true,
+          tileScale: 4
+    });
+    
+    return {
+      points: points, 
+      training: training 
+    };
+    
+};
+
+return this.init(param);
+
+};
+
+
+var Samples = new SampleFlooded(param);
