@@ -1,0 +1,249 @@
+// TEMA TRANSVERSAL GLACIARES 
+
+var params = {
+    'regionGlacier': 1001,
+    'pais': 'COLOMBIA', // Options: 'PERU', 'BOLIVIA', 'ECUADOR', 'COLOMBIA ,'VENEZUELA'
+    'shadowSum':3500,
+    'trees': 80,
+    'samples': [
+            3000,              // glacier  3000
+            8000               // no-glacier 8000
+          ],
+    'versionOutput':5,   // version 5
+    'versionBatch':4,
+    'exportar': true,  // false, true
+    'cloud': 20,  // fraccion cloud de SMA para considera un pixel como no observado
+    'version':5,
+    'versionfiltrado':45,
+    'paso': 'CO',
+};
+
+var variables = [
+                    "blue_median_dry",
+                    "green_median_dry",
+                    // "green_min",
+                    "red_median_dry",
+                    "nir_median_dry",
+                    "swir1_median_dry",
+                    "swir2_median_dry",
+                    // "ndwimf_median",
+                    "ndwimf_median_dry",
+                    "ndsi_median_dry",
+                    "ndsi_median_wet",
+                    "ndsi_min",
+                    // "ndsi_median",
+                    // "blue_median",
+                    // "green_median",
+                    // "red_median",
+                    // "nir_median",
+                    // "swir1_median",
+                    // "swir2_median",
+                    'slope',
+                    "gv",
+                    "npv",
+                    "soil",
+                    "cloud",
+                    "snow",
+                    "shade"
+              ]
+
+var YearsSensors =  [
+              [1985,  'lx',      90,     3000,      15000], 
+              [1986,  'lx',      75,     3500,      15000], 
+              [1987,  'lx',      75,     3000,      15000], 
+              [1988,  'lx',      75,     3000,      15000],
+              [1989,  'lx',      75,     3500,      16000],
+              [1990,  'lx',      75,     3000,      15000],
+              [1991,  'lx',      75,     3000,      15000],
+              [1992,  'lx',      75,     2114,       2497], 
+              [1993,  'lx',      75,     2114,       2497], 
+              [1994,  'lx',      75,     2114,       2497], 
+              [1995,  'lx',      75,     2114,       2497], 
+              [1996,  'lx',      75,     3000,      15000], 
+              [1997,  'lx',      75,     2500,      14000], 
+              [1998,  'lx',      75,     3000,      15000], 
+              [1999,  'lx',      75,     3000,      15000], 
+              [2000,  'lx',      75,     3000,      15000], 
+              [2001,  'lx',      75,     3000,      15000], 
+              [2002,  'lx',      75,     3000,      15000], 
+              [2003,  'lx',      75,     3000,      15000], 
+              [2004,  'lx',      75,     3000,      15000], 
+              [2005,  'lx',      75,     2000,      16000], 
+              [2006,  'lx',      75,     3000,      15000], 
+              [2007,  'lx',      75,     3000,      15000], 
+              [2008,  'lx',      75,     1500,      16000], 
+              [2009,  'lx',      75,     3000,      15000], 
+              [2010,  'lx',      75,     3000,      15000], 
+              [2011,  'lx',      75,     3000,      15000], 
+              [2012,  'lx',      75,     3000,      15000], 
+              [2013,  'l8',      75,     2000,       6000], 
+              [2014,  'l8',      75,     1200,       6000], 
+              [2015,  'l8',      75,     1200,       6000],     
+              [2016,  'l8',      75,     1200,       6000], 
+              [2017,  'l8',      75,     1200,       6000], 
+              [2018,  'l7',      75,     1500,      15500], 
+              [2019,  'l8',      75,      900,       6000],   
+              [2020,  'l8',      75,     1200,       6000],
+              [2021,  'l7',      75,      500,      16010], 
+              [2022,  'l8',      75,     1200,       6000]
+            ]  
+             
+var AssetRegions = 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/clasificacion-regiones-glacier-4';
+var AssetRegionsRaster = 'projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/clasificacion-regiones-glacier-4';
+var AssetClasBatch = 'projects/mapbiomas-raisg/TRANSVERSALES/'+ params.pais + '/COLECCION4/GLACIAR/clasificacion'
+var GlacierCol3 = ee.Image("users/eturpo/Glacier-Mapping/COLECCION1/INTEGRACION/Glacier_collection1_integration_4");
+var dem = ee.Image("USGS/SRTMGL1_003");
+var slope = ee.Terrain.slope(dem).rename('slope')
+
+var region = ee.FeatureCollection(AssetRegions).filterMetadata('id_regionC', 'equals', params.regionGlacier)
+var regionRaster = ee.Image(AssetRegionsRaster).eq(params.regionGlacier).selfMask()
+var clasCollBatch = ee.ImageCollection(AssetClasBatch).filter(ee.Filter.eq('version', params.versionBatch));
+var regionclas = ee.FeatureCollection('projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/clasificacion-regiones-glacier-4').filterMetadata('id_regionC', 'equals', params.regionGlacier)
+
+
+var result 
+if (params.paso == 'CO'){
+    result = 'projects/mapbiomas-raisg/TRANSVERSALES/COLOMBIA/COLECCION4/GLACIAR/clasificacion';
+} else {
+    result = 'projects/mapbiomas-raisg/TRANSVERSALES/COLOMBIA/COLECCION4/GLACIAR/clasificacion-ft';
+}
+
+
+var getImages = require('users/raisgmb01/mapbiomas-cross-cutting-themes:mapbiomas-glacier/collection-4/modules/GetImages.js');
+var smafractions = require('users/raisgmb01/mapbiomas-cross-cutting-themes:mapbiomas-glacier/collection-4/modules/Sma-fractions.js');
+
+var collection 
+if (params.paso == 'CO'){
+    collection = ee.ImageCollection(result)
+                     .filterMetadata('region', 'equals', params.regionGlacier)
+                     .filterMetadata('version', 'equals', params.version)
+} else {
+    collection = ee.ImageCollection(result)
+                .filter(ee.Filter.neq('descripcion', 'gapfill metadata'))
+                .filterMetadata('code_region', 'equals', params.regionGlacier)
+                .filterMetadata('version', 'equals', params.versionfiltrado)
+}
+
+var maps = []
+var map
+var mosaic
+    
+YearsSensors.forEach(
+  function(yearsensor) {
+    var tree = {
+      nir_dry:yearsensor[3],  //mayor o igual a
+      red_dry:yearsensor[4],  //mayor o igual a
+    }
+    var param = {
+    // 'grid_name': params.grid_name,
+    't0': yearsensor[0]+'-01-01',
+    't1': yearsensor[0]+'-12-31',
+    'satellite': yearsensor[1],
+    'cloud_cover': yearsensor[2],
+    'pais': params.pais,
+    'regionMosaic': params.regionGlacier,
+    'shadowSum':params.shadowSum
+    };
+  var ImagesYear = getImages.getImages(param,[],region);
+  
+  var Mosaic = ImagesYear[0].updateMask(regionRaster)
+                            .addBands(slope);
+                            
+  Mosaic = Mosaic.updateMask(Mosaic.select('blue_median').gte(0));
+  
+  Mosaic = smafractions.getFractions(Mosaic);
+
+  var MosaicForClass = Mosaic.select(variables)
+  print(yearsensor[0], MosaicForClass.bandNames().size())
+  
+  //print('# imagenes:'+yearsensor[0], Collection.size())
+  map = ui.Map();
+  map.addLayer(MosaicForClass, {
+      'bands': 'swir1_median_dry,nir_median_dry,red_median_dry',
+      'min':300,
+      'max':5000
+  },'Mosaic-minsnow-'+yearsensor[0], true)
+      
+  var sensornameupper =param.satellite.toUpperCase()
+  
+   if (params.paso == 'CO'){
+          var bands= 'classification'
+          mosaic = collection.filterMetadata('year', 'equals',ee.Number(yearsensor[0]));
+    } else {
+          var bands= 'classification_'+ String(yearsensor[i])
+          mosaic = collection.mosaic().select('classification_'+ String(yearsensor[0]));
+    }
+   
+
+    map.add(ui.Label(String(yearsensor[0]), {
+        'position': 'bottom-left',
+        'fontWeight': 'bold'
+    }));
+
+    map.addLayer(mosaic, {
+    "bands": bands,
+    "min": 0,
+    "max": 34,
+    "palette": "ffffff,129912,1f4423,006400,00ff00,687537,76a5af,29eee4,77a605,"+
+    "935132,bbfcac,45c2a5,b8af4f,f1c232,ffffb2,ffd966,f6b26b,f99f40,"+
+    "e974ed,d5a6bd,c27ba0,fff3bf,ea9999,dd7e6b,aa0000,ff99ff,0000ff,"+
+    "d5d5e5,dd497f,b2ae7c,af2a2a,8a2be2,968c46,0000ff,4fd3ff",
+     "format": "png"
+}, 'Año'+yearsensor[0]);
+
+    map.addLayer(regionclas.style({ fillColor: '#ff000000', color: 'f59e42'}), {},
+        'Región ' + params.regionGlacier,true
+    );
+
+    maps.push(map);
+  
+  } )
+  
+maps.push(ui.Map());
+
+var linker = ui.Map.Linker(maps);
+
+
+var title = ui.Label('Multitemporal Transversal Glaciares Colección 1 Colombia - '+params.paso+' Región '+params.regionGlacier, {
+    stretch: 'horizontal',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: '15px',
+});
+
+
+var mapGrid = ui.Panel([
+    ui.Panel([maps[0], maps[1], maps[2], maps[3], maps[4], maps[5], maps[6]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+    ui.Panel([maps[7], maps[8], maps[9], maps[10], maps[11], maps[12], maps[13]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+    ui.Panel([maps[14], maps[15], maps[16], maps[17], maps[18], maps[19], maps[20]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+    ui.Panel([maps[21], maps[22], maps[23], maps[24], maps[25], maps[26], maps[27]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+    ui.Panel([maps[28], maps[29], maps[30], maps[31], maps[32], maps[33], maps[34]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+    ui.Panel([maps[35], maps[36], maps[37]],
+            ui.Panel.Layout.Flow('horizontal'), {
+                stretch: 'both'
+            }),
+  ],
+    ui.Panel.Layout.Flow('vertical'), {
+        stretch: 'both'
+    }
+);
+
+ui.root.widgets().reset([title, mapGrid]);
+ui.root.setLayout(ui.Panel.Layout.Flow('vertical'));
+
+maps[0].centerObject(regionclas,8);

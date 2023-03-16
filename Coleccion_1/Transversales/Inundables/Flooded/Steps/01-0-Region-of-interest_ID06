@@ -1,0 +1,397 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var inclusion = /* color: #00ff1e */ee.FeatureCollection([]),
+    exclusion = /* color: #ff0000 */ee.FeatureCollection(
+        [ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.45836558710516, 3.99360012154569],
+                  [-70.4688369310993, 3.992058919104289],
+                  [-70.47381511103094, 3.986921556744056],
+                  [-70.47424426447333, 3.983839123914699],
+                  [-70.4604255236286, 3.987692163145804],
+                  [-70.4604255236286, 3.990260845932756],
+                  [-70.45793643366278, 3.9921445415380696]]]),
+            {
+              "value": 1,
+              "system:index": "0"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.49947848688544, 3.9839247472048376],
+                  [-70.50050845514716, 3.980414185003976],
+                  [-70.49819102655829, 3.979301076790082],
+                  [-70.49656024347723, 3.982469150060693]]]),
+            {
+              "value": 1,
+              "system:index": "1"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.42815318476141, 3.936145571946548],
+                  [-70.42832484613837, 3.9316928921556595],
+                  [-70.42300334345282, 3.9317785208375375],
+                  [-70.42300334345282, 3.936145571946548]]]),
+            {
+              "value": 1,
+              "system:index": "2"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.4066807655934, 3.942738919436003],
+                  [-70.4066807655934, 3.939741949781873],
+                  [-70.40402001425063, 3.939741949781873],
+                  [-70.40402001425063, 3.9422251539766857]]]),
+            {
+              "value": 1,
+              "system:index": "3"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.38838241989207, 3.900110827025908],
+                  [-70.39095734054636, 3.8972849690071882],
+                  [-70.38966988021922, 3.8957435879036493],
+                  [-70.38632248336863, 3.8984838190236113]]]),
+            {
+              "value": 1,
+              "system:index": "4"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.53056774020551, 3.872276692913257],
+                  [-70.53091106295942, 3.835110401064923],
+                  [-70.50516185641645, 3.8339114614321352],
+                  [-70.50413188815473, 3.871077805659447]]]),
+            {
+              "value": 1,
+              "system:index": "5"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.43406509968919, 3.790919804770129],
+                  [-70.4344084224431, 3.785781216265101],
+                  [-70.4292585811345, 3.785609929456176],
+                  [-70.42908691975755, 3.7916049475978335]]]),
+            {
+              "value": 1,
+              "system:index": "6"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.5720808467595, 3.7677959166169317],
+                  [-70.57156586262865, 3.7595739414096307],
+                  [-70.56469940755052, 3.759060065383165],
+                  [-70.56487106892747, 3.7679672069414383]]]),
+            {
+              "value": 1,
+              "system:index": "7"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.79697507966918, 3.7078743244195818],
+                  [-70.80761808504027, 3.7090734379217416],
+                  [-70.80761808504027, 3.699309180710595],
+                  [-70.7925118838684, 3.6984526617833535],
+                  [-70.79182523836059, 3.7058186974896383]]]),
+            {
+              "value": 1,
+              "system:index": "8"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.91562376304934, 3.665631976943161],
+                  [-70.91270551964114, 3.6486721082570157],
+                  [-70.90944395347903, 3.6486721082570157],
+                  [-70.9109889058716, 3.6651180462462163]]]),
+            {
+              "value": 1,
+              "system:index": "9"
+            }),
+        ee.Feature(
+            ee.Geometry.Polygon(
+                [[[-70.55848380701158, 3.389693459020794],
+                  [-70.55745383874986, 3.379069015516783],
+                  [-70.53376456873033, 3.3735853862366083],
+                  [-70.49702903406236, 3.374956296459016],
+                  [-70.49805900232408, 3.389693459020794]]]),
+            {
+              "value": 1,
+              "system:index": "10"
+            })]);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+var param = {
+  pais:  'COLOMBIA',
+  region: 30453,   //region clasificacion mapa general
+  type: 'acumulado',
+  cover: 6,
+  referencias: [  //Comentar las capas que no se quieren acumular
+   // Capas de colección 3
+   //'mapbiomas-id-6-acumulado', 'mapbiomas-id-6-estables',
+   // Capas globales
+      'cifor', //  Cifor
+      'nasa_100m',  // WCS_100m
+      'gfplain250', // GlobalFloodPlain250M-2019
+      'tootchi', // Tootchi-2017
+   // Capas Colombia
+  // 'col_ref_inundable06_raisg', 
+   'col_ref_inundable06_noraisg',         
+   // Capas Ecuador
+   //  'ecu_ref_inundable06_raisg', 
+   // Capas Peru
+   //  'per_ref_inundable06_raisg'
+  ],
+  Incluir_exluir : {   // Para Incluir o exluir 
+        inclusion: inclusion,
+        exclusion: exclusion,
+  },
+  frecuenRef : 1, // # de capas que se superponen. Si el valor es 1, toma todas las capas
+  version: '1'
+};
+
+// inputs
+ 
+var stableFlooded = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/wetlands-stables-3"),
+    stableWetland = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/wetlands-stables-11"),
+    raisg = ee.FeatureCollection("projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/limite-raisg-2"),
+    sheds = ee.FeatureCollection("projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/CuencasOttoN3"),
+    //regions = ee.FeatureCollection("projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/clasificacion-regiones-inundable-4"),
+    regions = ee.FeatureCollection("projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/COLOMBIA/ClasificacionRegionesInundables"), // Actualización regiones de inundables Colombia
+    accumulatedWetland = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/wetlands-accumulated-11"),
+    accumulatedFlooded = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/wetlands-accumulated-3"),
+    cifor = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/TROP-SUBTROP_PeatV21_2016_CIFOR"),
+    nasa_100m = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/LBA_Amazon_wetland_dual-season_veg_flood_AA100m"),
+    nasa_3arcsec = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/LBA_Amazon_wetland_dual-season_veg_flood_3arcsec"),
+    global_tootchi = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/CW_TCI"),
+    wwf = ee.FeatureCollection("projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/wwf_terr_ecos"),
+    gfplain250 = ee.ImageCollection("projects/sat-io/open-datasets/GFPLAIN250"),
+    col_ref_inundable06_raisg = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/COLOMBIA/col_ref_inunFul_Sirgas20001"),
+    // col_ref_inundable06_noraisg = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/COLOMBIA/col_ref_inundable06_noraisg"),
+    col_ref_inundable06_noraisg = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/COLOMBIA/col_ref_inundable06_noraisg"), // Actualización máscara no Raisg Colombia
+    per_ref_inundable06_raisg = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/per_inundables_MINAM2018"),
+    ecu_ref_inundable06_raisg = ee.Image("projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/ECUADOR/ecu_ref_inundable06_raisg"),
+
+    inclusion = /* color: #3614d6 */ee.FeatureCollection([]),
+    exclusion = /* color: #ff0000 */ee.FeatureCollection([]);
+
+/**
+ * Inclu exclu
+ */
+var inclus_exclu = function(capa, inclu, exclu){
+         var inclusionRegions=  ee.FeatureCollection(inclu).reduceToImage(['value'], ee.Reducer.first())
+                       .eq(1)
+         var exclusionRegions=  ee.FeatureCollection(exclu).reduceToImage(['value'], ee.Reducer.first())
+                       .eq(1)
+         capa = capa.where(exclusionRegions.eq(1), 0).selfMask()        
+         capa = ee.Image(0).where(capa.eq(1), 1)
+                           .where(inclusionRegions.eq(1), 1).selfMask()
+                           
+  return capa
+};
+
+
+function NamecountryCase (name){
+          var paisLowerCase =''
+          switch (name) {
+            case "PERU":
+                paisLowerCase = 'Perú';
+                break;
+            case "GUIANA_FRANCESA":
+                paisLowerCase = 'Guiana Francesa';
+                break;
+            case "VENEZUELA":
+                paisLowerCase = 'Venezuela';
+                break;
+            case "GUYANA":
+                paisLowerCase = 'Guyana';
+                break;
+            case "COLOMBIA":
+                paisLowerCase = 'Colombia';
+                break;
+            case "BRASIL":
+                paisLowerCase = 'Brasil';
+                break;
+            case "ECUADOR":
+                paisLowerCase = 'Ecuador';
+                break;
+            case "SURINAME":
+                paisLowerCase = 'Suriname';
+                break;
+            case "BOLIVIA":
+                paisLowerCase = 'Bolivia'
+            }
+  return paisLowerCase
+}
+var country = NamecountryCase(param.pais);
+var type = param.type;
+sheds = sheds.filterBounds(raisg);
+
+var assetCountries = 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/paises-4';
+var assetCountriesRaster = "projects/mapbiomas-raisg/DATOS_AUXILIARES/RASTERS/paises-4";
+//var assetRegionClasVector = 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/clasificacion-regiones-inundable-4';
+var assetRegionClasVector = 'users/mapbiomas_c1/Inundables/clasificacion_regiones_inundable_5_colombia'; // Actualizadas regiones colombia C1
+var regionClas = ee.FeatureCollection(assetRegionClasVector)
+      .filter(ee.Filter.eq('id_regionC', param.region));
+      
+var setVersion = function(item) { return item.set('version', 1) };
+var regionMask = regionClas
+  .map(setVersion)
+  .reduceToImage(['version'], ee.Reducer.first());
+
+// var regionMask = ee.Image(assetRegionClasVector).eq(param.region).selfMask()
+Map.addLayer(regionMask,{},'regionMask',true)
+/**
+ * Regions
+ */
+var region = regions.filter(ee.Filter.eq('pais', country));
+
+
+/**
+ * Stable pixels
+ */
+stableFlooded = stableFlooded.updateMask(regionMask).eq(1).selfMask();
+accumulatedFlooded = accumulatedFlooded.updateMask(regionMask).eq(1).selfMask();
+// stableWetland = stableWetland.clip(region).eq(1).selfMask();
+// accumulatedWetland = accumulatedWetland.clip(region).eq(1).selfMask();
+cifor = cifor.updateMask(regionMask).eq(1).selfMask();
+nasa_100m = nasa_100m.updateMask(regionMask).updateMask(nasa_100m.gt(1)).updateMask(nasa_100m.neq(200));
+nasa_3arcsec = nasa_3arcsec.updateMask(regionMask).updateMask(nasa_3arcsec.gt(1)).updateMask(nasa_3arcsec.neq(200));
+global_tootchi = global_tootchi.updateMask(regionMask).updateMask(global_tootchi.gt(1));
+wwf = wwf.filterBounds(region);
+gfplain250 = gfplain250.mosaic().updateMask(regionMask);
+col_ref_inundable06_raisg = col_ref_inundable06_raisg.updateMask(regionMask);
+col_ref_inundable06_noraisg = col_ref_inundable06_noraisg.updateMask(regionMask);
+per_ref_inundable06_raisg = per_ref_inundable06_raisg.remap([1,2,3,4],[11,6,6,11]).updateMask(regionMask);
+ecu_ref_inundable06_raisg = ecu_ref_inundable06_raisg.updateMask(regionMask);
+
+var ref_stableFlooded = stableFlooded.eq(1).rename('mapbiomas-id-6-estables');
+var ref_accumulatedFlooded = accumulatedFlooded.eq(1).rename('mapbiomas-id-6-acumulado');
+var ref_cifor = cifor.eq(1).rename('cifor');
+var ref_nasa_100m = nasa_100m.gte(23).rename('nasa_100m');
+var ref_global_tootchi = global_tootchi.gte(1).rename('tootchi');
+// var ref_wwf = wwf.filterBounds(region);
+var ref_gfplain250 = gfplain250.gte(0).rename('gfplain250');
+var ref_peru06_raisg = per_ref_inundable06_raisg.eq(6).rename('per_ref_inundable06_raisg');
+var ref_colombia06_raisg = col_ref_inundable06_raisg.eq(1).rename('col_ref_inundable06_raisg');
+var ref_colombia06_noraisg = col_ref_inundable06_noraisg.eq(6).rename('col_ref_inundable06_noraisg'); // ajustada para id 6
+var ref_ecuador06_raisg = ecu_ref_inundable06_raisg.gte(0).rename('ecu_ref_inundable06_raisg');
+
+var ACUMULADO_TOTAL = ee.Image(0).addBands(ref_stableFlooded)
+                                 .addBands(ref_accumulatedFlooded)
+                                 .addBands(ref_cifor)
+                                 .addBands(ref_nasa_100m)
+                                 .addBands(ref_global_tootchi)
+                                 .addBands(ref_gfplain250)
+                                 .addBands(ref_peru06_raisg)
+                                 .addBands(ref_colombia06_raisg)
+                                 .addBands(ref_colombia06_noraisg)
+                                 .addBands(ref_ecuador06_raisg)
+                                 .updateMask(regionMask);
+                                 
+
+/**
+ * Visualizations
+ */
+Map.setOptions('SATELLITE');
+
+var palette = require('users/mapbiomas/modules:Palettes.js').get('classification2');
+
+// Map.addLayer(
+//   ref_accumulatedFlooded,
+//   {
+//     palette: [palette[0], palette[6]]
+//   },
+//   'AccumulatedFlooded-col3', false);
+
+// Map.addLayer(
+//   ref_stableFlooded,
+//   {
+//     palette: [palette[0], palette[6]]
+//   },
+//   'StableFlooded-col3', false);
+
+
+Map.addLayer(
+  cifor,
+  { min: 0,  max: 1,  palette: 'bb09e8' },
+  'Cifor-2017',false
+);
+
+Map.addLayer(
+  nasa_100m,
+  { min: 0, max: 100, palette: 'e8502e,63ff21,27c2f0,562dff,bb09e8' },
+  'WCS_100m',false
+);
+
+
+Map.addLayer(
+  global_tootchi,
+  { min: 0, max: 4, palette: 'e8502e,63ff21,27c2f0,562dff,bb09e8' },
+  'Tootchi-2017',false
+);
+
+Map.addLayer(
+  gfplain250,
+  { palette:"#002B4D" },
+  'GlobalFloodPlain250M-2019',false
+);
+
+// Map.addLayer(
+//   ref_peru06_raisg.multiply(6).selfMask(), 
+//   {min:0, max:34, palette: palette}, 
+//   'Peru-6-referencia RAISG', false
+// );
+
+
+// Map.addLayer(
+//   col_ref_inundable06_raisg,
+//   { palette:"#007B4D" },
+//   'Colombia-6-referencia RAISG',false
+// );
+
+Map.addLayer(
+  col_ref_inundable06_noraisg,
+  { palette:"#007B4D" },
+  'Colombia-6-referencia No RAISG',false
+);
+
+// Map.addLayer(
+//   ecu_ref_inundable06_raisg, 
+//   {}, 
+//   'Ecuador-6-referencia RAISG', false
+// );
+
+//Map.addLayer(ACUMULADO_TOTAL,{},'ACUMULADO_TOTAL',false)
+print(ACUMULADO_TOTAL.bandNames())
+
+var ACUMULADO_TOTAL_sel = ACUMULADO_TOTAL.select(param.referencias).reduce('sum').updateMask(regionMask).selfMask();
+
+Map.addLayer(
+    ACUMULADO_TOTAL_sel,//.reproject('EPSG:4326', null, 30),
+    {min:0, max:param.referencias.length,palette:['fff829','ffce45','ff920a','ff6e19','ff0000','b30000']},
+    'ROI based on layer selection', true
+  );
+
+var CapaRef= ACUMULADO_TOTAL_sel.gte(param.frecuenRef).updateMask(regionMask).selfMask();
+
+
+CapaRef = inclus_exclu(CapaRef, param.Incluir_exluir.inclusion, param.Incluir_exluir.exclusion);
+
+
+Map.addLayer(
+    CapaRef,//.reproject('EPSG:4326', null, 30),
+    {palette:['f107df']},
+    'ROI based on layer selection export', true
+  );
+
+  
+Export.image.toAsset({
+  image: CapaRef,
+  description:'FLOODED-'+ 'ROI' + '-'+ param.pais + '-'+ param.region + '-'+ param.version,
+  //assetId:'projects/mapbiomas-raisg/MUESTRAS/'+param.pais+'/COLECCION4/TRANSVERSALES/INUNDABLE/STEP1_ROI/'+ 'FLOODED-'+ 'ROI' + '-'+ param.pais + '-'+ param.region + '-'+ param.version,
+  assetId:'projects/mapbiomas-raisg/MUESTRAS/'+param.pais+'/COLECCION5/TRANSVERSALES/INUNDABLE/STEP1_ROI/'+ 'FLOODED-'+ 'ROI' + '-'+ param.pais + '-'+ param.region + '-'+ param.version, //Rutas de salida ajustadas a Colección5,
+  scale: 30,
+  pyramidingPolicy: {
+    '.default': 'mode'
+  },
+  maxPixels: 1e13,
+  region: regionClas.geometry().bounds()
+});
+  
