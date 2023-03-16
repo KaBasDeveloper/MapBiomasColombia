@@ -7,7 +7,7 @@ Visualización de Mosaicos por año y regiones altas y bajas
 Mapbiomas.desarrollo@gaiaamazonas.org
 13 Febrero 2023
 
-*/
+*/*/
 
 var region = 303;
 var Pais = 'COLOMBIA';
@@ -36,17 +36,16 @@ Collectionc4_v1 = Collectionc4_v1
                   .filterMetadata('region_code','equals',region)
                   .filterMetadata('country','equals',Pais)
 
-                  
-for(var year = 1985; year<=2021; year++){ 
-  
+
+for(var year = 1985; year<=2021; year++){
+
   var mosaic_yeara = Collectionc4_v1
                     .filterMetadata('year','equals',year)
                     .median().clip(reg)
-  
+
   Map.addLayer(mosaic_yeara, {
         'bands': ['swir1_median', 'nir_median', 'red_median'],
         'gain': [0.08,0.06,0.2]
     },'Mosaico_c4_v2_'+region+'_'+year,false);
-   
- }                  
-                  
+
+ }
