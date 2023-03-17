@@ -297,3 +297,8 @@ var tdom = function (obj) {
 };
 
 ```
+
+
+## License
+
+[Creative Commons licensed](./LICENSE-docs).
