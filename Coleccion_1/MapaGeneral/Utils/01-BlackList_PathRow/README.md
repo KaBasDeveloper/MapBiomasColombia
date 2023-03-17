@@ -54,7 +54,7 @@ var rescale = function (obj) {
   return image;
 };
 ```
-### Funcion Factor de escala: Este proceso se debe aplicar a las colecciones 1 y 2 de nivel-2 antes de ser usados .
+### Función Factor de escala: Este proceso se debe aplicar a las colecciones 1 y 2 de nivel-2 antes de ser usados .
 * @nombre
 *      scaleFactors
 * @descripcion
@@ -80,7 +80,7 @@ var scaleFactors = function(image) {
 };
 ```
 
-### Funcion Obtener coleccion
+### Función Obtener Colección
 * @nombre
 *      getCollection
 * @descripcion
@@ -168,7 +168,7 @@ var getCollection = function (obj) {
   return collection;
 };
 ```
-### Puntaje Nubes
+### Función Porcentaje Nubes
 * @nombre
 *      cloudScore
 * @descripcion
@@ -240,7 +240,7 @@ var cloudScore = function (image) {
   return image.addBands(score);
 };
 ```
-### Funcion empleando el metido TOM función par la conversión y validación de datos obtenidos.
+### Función empleando el método TOM función par la conversión y validación de datos obtenidos.
 
 * @name
  *      tdom
