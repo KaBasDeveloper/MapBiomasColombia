@@ -1,5 +1,5 @@
 # 1. Selección de Set de imágenes
-Se hace uso del script denominado 01_Black_List_Path_Row en el cual se realiza la selección de las mejores tomas satelitales para la construcción del mosaico de acuerdo al Path y Row de la familia de Satélites de Lantsat. 
+Se hace uso del script denominado 01_Black_List_Path_Row en el cual se realiza la selección de las mejores tomas satelitales para la construcción del mosaico de acuerdo al Path y Row de la familia de Satélites de Landsat. 
 
 ```javascript
 ```
